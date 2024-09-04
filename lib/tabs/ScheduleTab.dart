@@ -13,55 +13,129 @@ class ScheduleTab extends StatefulWidget {
 enum FilterStatus { Upcoming, Complete, Cancel }
 
 List<Map> schedules = [
+{
+'img':'assets/doctor08.jpeg',
+  'doctorName': 'Dr. Liam Johnson ',
+  'doctorTitle': 'Oncologist',
+  'reservedDate':'Saturday September 14, 2024',
+  'reservedTime':'8:00am-9:00am',
+'status': FilterStatus.Upcoming
+
+},
   {
     'img': 'assets/doctor01.jpeg',
-    'doctorName': 'Dr. ',
-    'doctorTitle': 'Dental Specialist',
-    'reservedDate': 'Monday, Aug 29',
-    'reservedTime': '11:00 - 12:00',
+    'doctorName': 'Dr. Steven Carter  ',
+    'doctorTitle': 'Cardiologist',
+    'reservedDate': 'Monday September 16, 2024',
+    'reservedTime': '9:00am-11:00am',
     'status': FilterStatus.Upcoming
   },
   {
     'img': 'assets/doctor02.png',
-    'doctorName': 'Dr. ',
-    'doctorTitle': 'Skin Specialist',
-    'reservedDate': 'Monday, Sep 29',
-    'reservedTime': '11:00 - 12:00',
+    'doctorName': 'Dr. Richard Wilson ',
+    'doctorTitle': 'Gynecologist',
+    'reservedDate': 'Friday September 20, 2024',
+    'reservedTime': '8:00am-9:30am',
     'status': FilterStatus.Upcoming
   },
   {
     'img': 'assets/doctor03.jpeg',
-    'doctorName': 'Dr. ',
-    'doctorTitle': 'General Specialist',
-    'reservedDate': 'Monday, Jul 29',
-    'reservedTime': '11:00 - 12:00',
+    'doctorName': 'Dr. Robert Smith ',
+    'doctorTitle': 'Dermatologist',
+    'reservedDate': 'Tuesday September 24, 2024',
+    'reservedTime': '12:00pm-2:00pm',
     'status': FilterStatus.Upcoming
   },
+{
+'img': 'assets/doctor06.jpeg',
+'doctorName': 'Dr. Tyler Anderson  ',
+'doctorTitle': 'Endocrinologist',
+'reservedDate': 'Tuesday October 3, 2024',
+'reservedTime': '7:00am-9:00am',
+'status': FilterStatus.Upcoming
+},
+{
+'img': 'assets/doctor07.jpeg',
+'doctorName': 'Dr. Sarah Miller',
+'doctorTitle': 'Psychiatrist',
+'reservedDate': 'Friday October 11, 2024',
+'reservedTime': '8:00am-10:00am',
+'status': FilterStatus.Upcoming
+},
+{
+'img': 'assets/doctor08.jpeg',
+'doctorName': 'Dr. Liam Johnson ',
+'doctorTitle': 'Oncologist',
+'reservedDate': 'Thursday October 17, 2024',
+'reservedTime': '11:00am-1:00pm',
+'status': FilterStatus.Upcoming
+},
+{
+'img': 'assets/doctor09.jpeg',
+'doctorName': 'Dr. Christopher Scott ',
+'doctorTitle': 'Pediatrician',
+'reservedDate': 'Monday October 21, 2024',
+'reservedTime': '12:00pm-2:00pm',
+'status': FilterStatus.Upcoming
+},
   {
-    'img': 'assets/doctor04.jpeg',
-    'doctorName': 'Dr. ',
-    'doctorTitle': 'Something Specialist',
-    'reservedDate': 'Monday, Jul 29',
-    'reservedTime': '11:00 - 12:00',
+  'img': 'assets/doctor05.jpeg',
+  'doctorName': 'Dr. Emily Johnson',
+  'doctorTitle': 'Pediatrician',
+  'reservedDate': 'Friday August 9,2024',
+  'reservedTime': '1:00pm-2:30pm',
+   'status': FilterStatus.Complete
+},
+  {
+'img': 'assets/doctor04.jpeg',
+'doctorName': 'Dr. Renee Richards',
+'doctorTitle': 'Ophthalmologist',
+'reservedDate': 'Thursday August 22, 2024 ',
+'reservedTime': '2:30pm-3:30pm',
+'status': FilterStatus.Complete
+},
+  {
+    'img': 'assets/doctor03.jpeg',
+    'doctorName': 'Dr. Robert Smith',
+    'doctorTitle': 'Dermatologist',
+    'reservedDate': 'Friday August 30, 2024 ',
+    'reservedTime': '11:30am-2:30pm',
     'status': FilterStatus.Complete
   },
   {
     'img': 'assets/doctor05.jpeg',
-    'doctorName': 'Dr. ',
-    'doctorTitle': 'Other Specialist',
-    'reservedDate': 'Monday, Jul 29',
-    'reservedTime': '11:00 - 12:00',
+    'doctorName': 'Dr. Emily Johnson',
+    'doctorTitle': 'Pediatrician',
+    'reservedDate': 'Saturday August 17, 2024',
+    'reservedTime': '1:00pm-2:30pm',
     'status': FilterStatus.Cancel
   },
+{
+  'img': 'assets/doctor01.jpeg',
+  'doctorName': 'Dr. Steven Carter  ',
+  'doctorTitle': 'Cardiologist',
+  'reservedDate': ' Friday September 6,2024',
+  'reservedTime': '9:00am-11:00am',
+  'status': FilterStatus.Cancel
+},
+{
+'img': 'assets/doctor09.jpeg',
+'doctorName': 'Dr. Christopher Scott ',
+'doctorTitle': 'Pediatrician',
+'reservedDate': 'Thursday September 12, 2024',
+'reservedTime': '12:00pm-2:00pm',
+'status': FilterStatus.Cancel
+},
   {
-    'img': 'assets/doctor05.jpeg',
-    'doctorName': 'Dr. ',
-    'doctorTitle': 'Other Specialist',
-    'reservedDate': '',
-    'reservedTime': '11:00 - 12:00',
+    'img': 'assets/doctor03.jpeg',
+    'doctorName': 'Dr. Robert Smith',
+    'doctorTitle': 'Dermatologist',
+    'reservedDate': 'Monday September 16, 2024 ',
+    'reservedTime': '9:30am-10:30am',
     'status': FilterStatus.Cancel
   },
 ];
+
 
 class _ScheduleTabState extends State<ScheduleTab> {
   FilterStatus status = FilterStatus.Upcoming;
