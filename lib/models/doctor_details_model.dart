@@ -32,7 +32,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor01.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Richard Wilson") {
       return DoctorDetailModel(
           aboutDescription:
@@ -40,12 +40,12 @@ class DoctorDetailModel {
               " With years of experience in managing various gynecological conditions, he provides comprehensive care including routine exams, prenatal care, and treatment for complex gynecological issues.\n"
               "Dr. Wilson is known for his empathetic approach and dedication to addressing each patient's individual concerns.\n"
               "His practice emphasizes preventive care and education, ensuring women have the knowledge and support they need to maintain optimal reproductive health.",
-          location: "Kingston, Jamaica",
+          location: "St.Ann, Jamaica",
           rating: 5.0,
           reviews: "Good",
           image: 'assets/doctor02.png');
     }
-    ;
+
     if (doctorName == "Dr. Robert Smith") {
       return DoctorDetailModel(
           aboutDescription:
@@ -58,7 +58,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor03.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Renee Richards") {
       return DoctorDetailModel(
           aboutDescription:
@@ -70,7 +70,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor04.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Emily Johnson") {
       return DoctorDetailModel(
           aboutDescription:
@@ -83,7 +83,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor05.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Tyler Anderson") {
       return DoctorDetailModel(
           aboutDescription:
@@ -95,7 +95,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor06.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Sarah Miller") {
       return DoctorDetailModel(
           aboutDescription:
@@ -107,7 +107,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor07.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Liam Johnson") {
       return DoctorDetailModel(
           aboutDescription:
@@ -119,7 +119,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor08.jpeg');
     }
-    ;
+
     if (doctorName == "Dr. Christopher Scott") {
       return DoctorDetailModel(
           aboutDescription:
@@ -131,7 +131,7 @@ class DoctorDetailModel {
           reviews: "Good",
           image: 'assets/doctor09.jpeg');
     }
-    ;
+
     return null;
   }
 }

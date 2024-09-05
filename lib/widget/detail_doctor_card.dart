@@ -4,10 +4,12 @@ import '../styles/colors.dart';
 
 class DetailDoctorCard extends StatelessWidget {
   final DoctorDetailModel doctorDetail;
+  final String doctorName;
 
   const DetailDoctorCard({
     Key? key,
     required this.doctorDetail,
+    required this.doctorName,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,8 @@ class DetailDoctorCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    doctorDetail.doctorName(), // Display the doctor's name
+                    doctorName,
+                   // doctorDetail.doctorName(), // Display the doctor's name
                     style: TextStyle(
                       color: Color(MyColors.header01),
                       fontWeight: FontWeight.w700,

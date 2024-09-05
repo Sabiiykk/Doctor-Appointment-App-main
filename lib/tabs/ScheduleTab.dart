@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:doctor_appointment_app_main_test/styles/colors.dart';
 import 'package:doctor_appointment_app_main_test/styles/styles.dart';
+import 'package:intl/intl.dart';
+
+import '../widget/calendar_picker.dart';
+import '../widget/datetime_card.dart';
 
 class ScheduleTab extends StatefulWidget {
   const ScheduleTab({Key? key}) : super(key: key);
@@ -13,15 +17,14 @@ class ScheduleTab extends StatefulWidget {
 enum FilterStatus { Upcoming, Complete, Cancel }
 
 List<Map> schedules = [
-{
-'img':'assets/doctor08.jpeg',
-  'doctorName': 'Dr. Liam Johnson ',
-  'doctorTitle': 'Oncologist',
-  'reservedDate':'Saturday September 14, 2024',
-  'reservedTime':'8:00am-9:00am',
-'status': FilterStatus.Upcoming
-
-},
+  {
+    'img': 'assets/doctor08.jpeg',
+    'doctorName': 'Dr. Liam Johnson ',
+    'doctorTitle': 'Oncologist',
+    'reservedDate': 'Saturday September 14, 2024',
+    'reservedTime': '8:00am-9:00am',
+    'status': FilterStatus.Upcoming
+  },
   {
     'img': 'assets/doctor01.jpeg',
     'doctorName': 'Dr. Steven Carter  ',
@@ -46,54 +49,54 @@ List<Map> schedules = [
     'reservedTime': '12:00pm-2:00pm',
     'status': FilterStatus.Upcoming
   },
-{
-'img': 'assets/doctor06.jpeg',
-'doctorName': 'Dr. Tyler Anderson  ',
-'doctorTitle': 'Endocrinologist',
-'reservedDate': 'Tuesday October 3, 2024',
-'reservedTime': '7:00am-9:00am',
-'status': FilterStatus.Upcoming
-},
-{
-'img': 'assets/doctor07.jpeg',
-'doctorName': 'Dr. Sarah Miller',
-'doctorTitle': 'Psychiatrist',
-'reservedDate': 'Friday October 11, 2024',
-'reservedTime': '8:00am-10:00am',
-'status': FilterStatus.Upcoming
-},
-{
-'img': 'assets/doctor08.jpeg',
-'doctorName': 'Dr. Liam Johnson ',
-'doctorTitle': 'Oncologist',
-'reservedDate': 'Thursday October 17, 2024',
-'reservedTime': '11:00am-1:00pm',
-'status': FilterStatus.Upcoming
-},
-{
-'img': 'assets/doctor09.jpeg',
-'doctorName': 'Dr. Christopher Scott ',
-'doctorTitle': 'Pediatrician',
-'reservedDate': 'Monday October 21, 2024',
-'reservedTime': '12:00pm-2:00pm',
-'status': FilterStatus.Upcoming
-},
   {
-  'img': 'assets/doctor05.jpeg',
-  'doctorName': 'Dr. Emily Johnson',
-  'doctorTitle': 'Pediatrician',
-  'reservedDate': 'Friday August 9,2024',
-  'reservedTime': '1:00pm-2:30pm',
-   'status': FilterStatus.Complete
-},
+    'img': 'assets/doctor06.jpeg',
+    'doctorName': 'Dr. Tyler Anderson  ',
+    'doctorTitle': 'Endocrinologist',
+    'reservedDate': 'Tuesday October 3, 2024',
+    'reservedTime': '7:00am-9:00am',
+    'status': FilterStatus.Upcoming
+  },
   {
-'img': 'assets/doctor04.jpeg',
-'doctorName': 'Dr. Renee Richards',
-'doctorTitle': 'Ophthalmologist',
-'reservedDate': 'Thursday August 22, 2024 ',
-'reservedTime': '2:30pm-3:30pm',
-'status': FilterStatus.Complete
-},
+    'img': 'assets/doctor07.jpeg',
+    'doctorName': 'Dr. Sarah Miller',
+    'doctorTitle': 'Psychiatrist',
+    'reservedDate': 'Friday October 11, 2024',
+    'reservedTime': '8:00am-10:00am',
+    'status': FilterStatus.Upcoming
+  },
+  {
+    'img': 'assets/doctor08.jpeg',
+    'doctorName': 'Dr. Liam Johnson ',
+    'doctorTitle': 'Oncologist',
+    'reservedDate': 'Thursday October 17, 2024',
+    'reservedTime': '11:00am-1:00pm',
+    'status': FilterStatus.Upcoming
+  },
+  {
+    'img': 'assets/doctor09.jpeg',
+    'doctorName': 'Dr. Christopher Scott ',
+    'doctorTitle': 'Pediatrician',
+    'reservedDate': 'Monday October 21, 2024',
+    'reservedTime': '12:00pm-2:00pm',
+    'status': FilterStatus.Upcoming
+  },
+  {
+    'img': 'assets/doctor05.jpeg',
+    'doctorName': 'Dr. Emily Johnson',
+    'doctorTitle': 'Pediatrician',
+    'reservedDate': 'Friday August 9,2024',
+    'reservedTime': '1:00pm-2:30pm',
+    'status': FilterStatus.Complete
+  },
+  {
+    'img': 'assets/doctor04.jpeg',
+    'doctorName': 'Dr. Renee Richards',
+    'doctorTitle': 'Ophthalmologist',
+    'reservedDate': 'Thursday August 22, 2024 ',
+    'reservedTime': '2:30pm-3:30pm',
+    'status': FilterStatus.Complete
+  },
   {
     'img': 'assets/doctor03.jpeg',
     'doctorName': 'Dr. Robert Smith',
@@ -110,22 +113,22 @@ List<Map> schedules = [
     'reservedTime': '1:00pm-2:30pm',
     'status': FilterStatus.Cancel
   },
-{
-  'img': 'assets/doctor01.jpeg',
-  'doctorName': 'Dr. Steven Carter  ',
-  'doctorTitle': 'Cardiologist',
-  'reservedDate': ' Friday September 6,2024',
-  'reservedTime': '9:00am-11:00am',
-  'status': FilterStatus.Cancel
-},
-{
-'img': 'assets/doctor09.jpeg',
-'doctorName': 'Dr. Christopher Scott ',
-'doctorTitle': 'Pediatrician',
-'reservedDate': 'Thursday September 12, 2024',
-'reservedTime': '12:00pm-2:00pm',
-'status': FilterStatus.Cancel
-},
+  {
+    'img': 'assets/doctor01.jpeg',
+    'doctorName': 'Dr. Steven Carter  ',
+    'doctorTitle': 'Cardiologist',
+    'reservedDate': ' Friday September 6,2024',
+    'reservedTime': '9:00am-11:00am',
+    'status': FilterStatus.Cancel
+  },
+  {
+    'img': 'assets/doctor09.jpeg',
+    'doctorName': 'Dr. Christopher Scott ',
+    'doctorTitle': 'Pediatrician',
+    'reservedDate': 'Thursday September 12, 2024',
+    'reservedTime': '12:00pm-2:00pm',
+    'status': FilterStatus.Cancel
+  },
   {
     'img': 'assets/doctor03.jpeg',
     'doctorName': 'Dr. Robert Smith',
@@ -136,10 +139,10 @@ List<Map> schedules = [
   },
 ];
 
-
 class _ScheduleTabState extends State<ScheduleTab> {
   FilterStatus status = FilterStatus.Upcoming;
   Alignment _alignment = Alignment.centerLeft;
+  DateTime? selectedDate;
 
   @override
   Widget build(BuildContext context) {
@@ -280,7 +283,7 @@ class _ScheduleTabState extends State<ScheduleTab> {
                           const SizedBox(
                             height: 15,
                           ),
-                          const DateTimeCard(),
+                          DateTimeCard(selectedDate: selectedDate),
                           const SizedBox(
                             height: 15,
                           ),
@@ -299,9 +302,31 @@ class _ScheduleTabState extends State<ScheduleTab> {
                               Expanded(
                                 child: ElevatedButton(
                                   child: const Text('Reschedule'),
-                                  onPressed: () => {},
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => Dialog(
+                                        insetPadding:
+                                            const EdgeInsets.symmetric(
+                                                horizontal: 20),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: CustomCalendarPickerWidget(
+                                          onDateSelected: (DateTime? date) {
+                                            setState(() {
+                                              selectedDate = date;
+                                            });
+                                            Navigator.of(context)
+                                                .pop(); // Close the dialog
+                                          },
+                                        ), // Call your custom calendar widget
+                                      ),
+                                    );
+                                  },
                                 ),
-                              )
+                              ),
                             ],
                           )
                         ],
@@ -313,69 +338,6 @@ class _ScheduleTabState extends State<ScheduleTab> {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class DateTimeCard extends StatelessWidget {
-  const DateTimeCard({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(MyColors.bg03),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.calendar_today,
-                color: Color(MyColors.primary),
-                size: 15,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text(
-                '',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Color(MyColors.primary),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.access_alarm,
-                color: Color(MyColors.primary),
-                size: 17,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text(
-                '',
-                style: TextStyle(
-                  color: Color(MyColors.primary),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          )
-        ],
       ),
     );
   }
