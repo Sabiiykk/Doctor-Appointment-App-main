@@ -1,5 +1,4 @@
 import 'package:custom_calender_picker/custom_calender_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -9,7 +8,7 @@ class CustomCalendarPickerWidget extends StatefulWidget {
   const CustomCalendarPickerWidget({Key? key, required this.onDateSelected}) : super(key: key);
 
   @override
-  _CustomCalenderPickerWidgetState createState() => _CustomCalenderPickerWidgetState();
+  State<CustomCalendarPickerWidget> createState() => _CustomCalenderPickerWidgetState();
 }
 
 class _CustomCalenderPickerWidgetState extends State<CustomCalendarPickerWidget> {

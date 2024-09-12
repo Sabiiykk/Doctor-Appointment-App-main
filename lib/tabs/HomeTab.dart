@@ -1,3 +1,4 @@
+import 'package:doctor_appointment_app_main_test/models/doctor_info_model.dart';
 import 'package:doctor_appointment_app_main_test/widget/appointment_card.dart';
 import 'package:doctor_appointment_app_main_test/widget/category_icon.dart';
 import 'package:doctor_appointment_app_main_test/widget/category_icons.dart';
@@ -57,13 +58,39 @@ List<Map> doctors = [
   }
 ];
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   final void Function() onPressedScheduleCard;
 
   const HomeTab({
     Key? key,
     required this.onPressedScheduleCard,
   }) : super(key: key);
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+
+  List<DoctorModel> filtereDoctors = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filtereDoctors = DoctorModel.doctorList;
+  }
+
+  void searchDoctor(String query) {
+    final suggestions = DoctorModel.doctorList.where((doctor) {
+      final doctorName = doctor.name.toLowerCase();
+      final input = query.toLowerCase();
+      return doctorName.contains(input) || doctor.specialization.toLowerCase().contains(input);
+    }).toList();
+
+    setState(() {
+      filtereDoctors = suggestions;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +107,7 @@ class HomeTab extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const SearchInput(),
+            SearchInput(onSearch: searchDoctor),
             const SizedBox(
               height: 20,
             ),
@@ -111,7 +138,7 @@ class HomeTab extends StatelessWidget {
               height: 20,
             ),
             AppointmentCard(
-              onTap: onPressedScheduleCard,
+              onTap: widget.onPressedScheduleCard,
             ),
             const SizedBox(
               height: 20,
@@ -126,12 +153,17 @@ class HomeTab extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            for (var i = 0; i < doctors.length; i++)
+            for (var doctor in filtereDoctors)
+            //var i = 0; i < doctors.length; i++)
               TopDoctorCard(
-                img: doctors[i]['img'],
-                doctorName: doctors[i]['doctorName'],
-                doctorTitle: doctors[i]['doctorTitle'],
-                index: i,
+                img: doctor.imagePath,
+                //doctors[i]['img'],
+                doctorName:  doctor.name,
+                //doctors[i]['doctorName'],
+                doctorTitle:  doctor.specialization,
+                //doctors[i]['doctorTitle'],
+                index: filtereDoctors.indexOf(doctor)
+               // i,
               )
           ],
         ),

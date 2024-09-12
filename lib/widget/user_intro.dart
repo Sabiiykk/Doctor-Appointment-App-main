@@ -18,7 +18,7 @@ class UserIntro extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             Text(
-              'Sabrina👋',
+              'Sabrina Deacon👋',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ],

@@ -32,7 +32,7 @@ class AppointmentCard extends StatelessWidget {
                     Row(
                       children: [
                         const CircleAvatar(
-                          backgroundImage: AssetImage('assets/doctor01.jpeg'),
+                          backgroundImage: AssetImage('assets/doctor02.png'),
                         ),
                         const SizedBox(
                           width: 10,
@@ -41,13 +41,13 @@ class AppointmentCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Dr. Steven Carter',
+                            const Text('Dr. Richard Wilson',
                                 style: TextStyle(color: Colors.white)),
                             const SizedBox(
                               height: 2,
                             ),
                             Text(
-                              '',
+                              'Gynecologist',
                               style: TextStyle(color: Color(MyColors.text01)),
                             ),
                           ],

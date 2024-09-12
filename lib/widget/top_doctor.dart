@@ -65,23 +65,23 @@ class TopDoctorCard extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.star,
-                      color: Color(MyColors.yellow02),
-                      size: 18,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      '4.0 - 5.0 Reviews',
-                      style: TextStyle(color: Color(MyColors.grey02)),
-                    )
-                  ],
-                )
+                // Row(
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     Icon(
+                //       Icons.star,
+                //       color: Color(MyColors.yellow02),
+                //       size: 18,
+                //     ),
+                //     const SizedBox(
+                //       width: 5,
+                //     ),
+                //     Text(
+                //       '4.0 - 5.0 Reviews',
+                //       style: TextStyle(color: Color(MyColors.grey02)),
+                //     )
+                //   ],
+                // )
               ],
             )
           ],

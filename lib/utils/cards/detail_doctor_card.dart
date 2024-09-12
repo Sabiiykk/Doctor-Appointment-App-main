@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/doctor_details_model.dart';
-import '../styles/colors.dart';
+import '../../models/doctor_details_model.dart';
+import '../../styles/colors.dart';
 
 class DetailDoctorCard extends StatelessWidget {
   final DoctorDetailModel doctorDetail;
@@ -15,10 +15,25 @@ class DetailDoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+      ),
       child: Container(
-        padding: const EdgeInsets.all(15),
         width: double.infinity,
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              spreadRadius: 2,
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            )
+          ]
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -28,10 +43,10 @@ class DetailDoctorCard extends StatelessWidget {
                 children: [
                   Text(
                     doctorName,
-                   // doctorDetail.doctorName(), // Display the doctor's name
                     style: TextStyle(
-                      color: Color(MyColors.header01),
-                      fontWeight: FontWeight.w700,
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
                   const SizedBox(

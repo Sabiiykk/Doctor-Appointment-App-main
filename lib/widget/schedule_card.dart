@@ -27,7 +27,7 @@ class ScheduleCard extends StatelessWidget {
             width: 5,
           ),
           Text(
-            'Monday September 16, 2024',
+            'Wednesday October 9, 2024',
             style: TextStyle(color: Colors.white),
           ),
           SizedBox(

@@ -2,8 +2,11 @@ import 'package:doctor_appointment_app_main_test/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class SearchInput extends StatelessWidget {
+  final Function(String) onSearch;
+
   const SearchInput({
     Key? key,
+    required this.onSearch,
   }) : super(key: key);
 
   @override
@@ -30,6 +33,7 @@ class SearchInput extends StatelessWidget {
           ),
           Expanded(
             child: TextField(
+              onChanged: onSearch,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Search a doctor or health issue',

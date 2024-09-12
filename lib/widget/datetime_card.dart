@@ -45,7 +45,9 @@ class DateTimeCard extends StatelessWidget {
                 width: 5,
               ),
               Text(
-                selectedDate != null ? DateFormat('yyyy-MM-dd').format(selectedDate!) : 'Selected Date',
+                selectedDate != null
+                    ? DateFormat('yyyy-MM-dd').format(selectedDate!)
+                    : 'Selected Date',
                 style: TextStyle(
                   color: Color(MyColors.primary),
                   fontWeight: FontWeight.bold,
