@@ -1,6 +1,10 @@
+// ignore_for_file: file_names
+
+import 'package:doctor_appointment_app_main_test/models/doctor.dart';
 import 'package:flutter/material.dart';
 import 'package:doctor_appointment_app_main_test/styles/colors.dart';
 import 'package:doctor_appointment_app_main_test/styles/styles.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 List<Map> doctors = [
   {
@@ -64,7 +68,7 @@ class HomeTab extends StatelessWidget {
                   style: kTitleStyle,
                 ),
                 TextButton(
-                  child: Text(
+                  child: const Text(
                     'See All',
                     style: TextStyle(
                       color: Color(MyColors.yellow01),
@@ -84,7 +88,7 @@ class HomeTab extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Top Doctor',
               style: TextStyle(
                 color: Color(MyColors.header01),
@@ -108,32 +112,42 @@ class HomeTab extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class TopDoctorCard extends StatelessWidget {
+class TopDoctorCard extends StatefulWidget {
   String img;
   String doctorName;
   String doctorTitle;
 
-  TopDoctorCard({super.key, 
+  TopDoctorCard({
+    super.key,
     required this.img,
     required this.doctorName,
     required this.doctorTitle,
   });
 
   @override
+  State<TopDoctorCard> createState() => _TopDoctorCardState();
+}
+
+class _TopDoctorCardState extends State<TopDoctorCard> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.only(bottom: 20),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, '/detail');
+          Navigator.pushNamed(context, '/detail',
+              arguments: Doctor(
+                  doctorName: widget.doctorName,
+                  doctorTitle: widget.doctorTitle,
+                  img: widget.img));
         },
         child: Row(
           children: [
             Container(
-              color: Color(MyColors.grey01),
+              color: const Color(MyColors.grey01),
               child: Image(
                 width: 100,
-                image: AssetImage(img),
+                image: AssetImage(widget.img),
               ),
             ),
             const SizedBox(
@@ -143,8 +157,8 @@ class TopDoctorCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  doctorName,
-                  style: TextStyle(
+                  widget.doctorName,
+                  style: const TextStyle(
                     color: Color(MyColors.header01),
                     fontWeight: FontWeight.w700,
                   ),
@@ -153,8 +167,8 @@ class TopDoctorCard extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  doctorTitle,
-                  style: TextStyle(
+                  widget.doctorTitle,
+                  style: const TextStyle(
                     color: Color(MyColors.grey02),
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
@@ -163,7 +177,7 @@ class TopDoctorCard extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Row(
+                const Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Icon(
@@ -171,7 +185,7 @@ class TopDoctorCard extends StatelessWidget {
                       color: Color(MyColors.yellow02),
                       size: 18,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 5,
                     ),
                     Text(
@@ -204,32 +218,31 @@ class AppointmentCard extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Color(MyColors.primary),
+            color: const Color(MyColors.primary),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Material(
             color: Colors.transparent,
             child: InkWell(
               onTap: onTap,
-              child: Padding(
-                padding: const EdgeInsets.all(20),
+              child: const Padding(
+                padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
                     Row(
                       children: [
-                        const CircleAvatar(
+                        CircleAvatar(
                           backgroundImage: AssetImage('assets/doctor01.jpeg'),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Dr.',
-                                style: TextStyle(color: Colors.white)),
-                            const SizedBox(
+                            Text('Dr.', style: TextStyle(color: Colors.white)),
+                            SizedBox(
                               height: 2,
                             ),
                             Text(
@@ -240,10 +253,10 @@ class AppointmentCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
-                    const ScheduleCard(),
+                    ScheduleCard(),
                   ],
                 ),
               ),
@@ -254,9 +267,9 @@ class AppointmentCard extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 20),
           width: double.infinity,
           height: 10,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(MyColors.bg02),
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(10),
               bottomLeft: Radius.circular(10),
             ),
@@ -266,9 +279,9 @@ class AppointmentCard extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 40),
           width: double.infinity,
           height: 10,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(MyColors.bg03),
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(10),
               bottomLeft: Radius.circular(10),
             ),
@@ -315,7 +328,7 @@ class ScheduleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(MyColors.bg01),
+        color: const Color(MyColors.bg01),
         borderRadius: BorderRadius.circular(10),
       ),
       width: double.infinity,
@@ -332,7 +345,7 @@ class ScheduleCard extends StatelessWidget {
             width: 5,
           ),
           Text(
-            'Friday September 27,,2024 ',
+            'Friday September 27, 2024 ',
             style: TextStyle(color: Colors.white),
           ),
           SizedBox(
@@ -363,7 +376,8 @@ class CategoryIcon extends StatelessWidget {
   IconData icon;
   String text;
 
-  CategoryIcon({super.key, 
+  CategoryIcon({
+    super.key,
     required this.icon,
     required this.text,
   });
@@ -371,7 +385,7 @@ class CategoryIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Color(MyColors.bg01),
+      splashColor: const Color(MyColors.bg01),
       onTap: () {},
       child: Padding(
         padding: const EdgeInsets.all(4.0),
@@ -381,12 +395,12 @@ class CategoryIcon extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                color: Color(MyColors.bg),
+                color: const Color(MyColors.bg),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Icon(
                 icon,
-                color: Color(MyColors.primary),
+                color: const Color(MyColors.primary),
               ),
             ),
             const SizedBox(
@@ -394,7 +408,7 @@ class CategoryIcon extends StatelessWidget {
             ),
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color(MyColors.primary),
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
@@ -417,21 +431,21 @@ class SearchInput extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(MyColors.bg),
+        color: const Color(MyColors.bg),
         borderRadius: BorderRadius.circular(5),
       ),
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      child: Row(
+      child: const Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 3),
+            padding: EdgeInsets.only(top: 3),
             child: Icon(
               Icons.search,
               color: Color(MyColors.purple02),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 15,
           ),
           Expanded(
@@ -452,31 +466,62 @@ class SearchInput extends StatelessWidget {
   }
 }
 
-class UserIntro extends StatelessWidget {
+class UserIntro extends StatefulWidget {
   const UserIntro({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<UserIntro> createState() => _UserIntroState();
+}
+
+class _UserIntroState extends State<UserIntro> {
+  late Box userBox;
+
+  String? displayName;
+  String? email;
+  String? photoUrl;
+  String? userId;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    // Ensure the box is opened before accessing it
+    userBox = Hive.box('googleUserBox');
+
+    // Retrieve user data from the box
+    setState(() {
+      displayName = userBox.get('displayName', defaultValue: 'Anonymous');
+      email = userBox.get('userEmail', defaultValue: 'No email');
+      photoUrl = userBox.get('photoUrl');
+      userId = userBox.get('userId');
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Hello',
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             Text(
-              'Sabrina👋',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              '${displayName!.split(' ').first} 👋',
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ],
         ),
         CircleAvatar(
-          backgroundImage: AssetImage('assets/useerlogin.png'),
+          backgroundImage: NetworkImage(photoUrl!),
         )
       ],
     );

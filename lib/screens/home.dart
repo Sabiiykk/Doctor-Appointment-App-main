@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:doctor_appointment_app_main_test/styles/colors.dart';
 import 'package:doctor_appointment_app_main_test/tabs/HomeTab.dart';
@@ -17,6 +19,7 @@ List<Map> navigationBarItems = [
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+
   void goToSchedule() {
     setState(() {
       _selectedIndex = 1;
@@ -26,52 +29,53 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
-      HomeTab(
-        onPressedScheduleCard: goToSchedule,
-      ),
+      HomeTab(onPressedScheduleCard: goToSchedule),
       const ScheduleTab(),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(MyColors.primary),
+        backgroundColor: const Color(MyColors.primary),
         elevation: 0,
         toolbarHeight: 0,
       ),
-      body: SafeArea(
-        child: screens[_selectedIndex],
-      ),
+      body: SafeArea(child: screens[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 0,
-        selectedItemColor: Color(MyColors.primary),
+        selectedItemColor: const Color(MyColors.primary),
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        items: [
-          for (var navigationBarItem in navigationBarItems)
-            BottomNavigationBarItem(
-              icon: Container(
-                height: 55,
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: _selectedIndex == navigationBarItem['index']
-                        ? BorderSide(color: Color(MyColors.bg01), width: 5)
-                        : BorderSide.none,
+        items: navigationBarItems.map((navigationBarItem) {
+          int index = navigationBarItem['index'] as int;
+          return BottomNavigationBarItem(
+            icon: Container(
+              height: 55,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: _selectedIndex == index
+                        ? const Color(MyColors.bg01)
+                        : Colors.transparent,
+                    width: 5,
                   ),
                 ),
-                child: Icon(
-                  navigationBarItem['icon'],
-                  color: _selectedIndex == 0
-                      ? Color(MyColors.bg01)
-                      : Color(MyColors.bg02),
-                ),
               ),
-              label: '',
+              child: Icon(
+                navigationBarItem['icon'] as IconData,
+                color: _selectedIndex == index
+                    ? const Color(MyColors.bg01)
+                    : const Color(MyColors.bg02),
+              ),
             ),
-        ],
+            label: '',
+          );
+        }).toList(),
         currentIndex: _selectedIndex,
-        onTap: (value) => setState(() {
-          _selectedIndex = value;
-        }),
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
       ),
     );
   }

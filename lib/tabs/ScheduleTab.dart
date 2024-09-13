@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:doctor_appointment_app_main_test/styles/colors.dart';
 import 'package:doctor_appointment_app_main_test/styles/styles.dart';
@@ -93,7 +95,7 @@ class _ScheduleTabState extends State<ScheduleTab> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Color(MyColors.bg),
+                    color: const Color(MyColors.bg),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -136,7 +138,7 @@ class _ScheduleTabState extends State<ScheduleTab> {
                     width: 100,
                     height: 40,
                     decoration: BoxDecoration(
-                      color: Color(MyColors.primary),
+                      color: const Color(MyColors.primary),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Center(
@@ -159,7 +161,7 @@ class _ScheduleTabState extends State<ScheduleTab> {
               child: ListView.builder(
                 itemCount: filteredSchedules.length,
                 itemBuilder: (context, index) {
-                  var _schedule = filteredSchedules[index];
+                  var schedule = filteredSchedules[index];
                   bool isLastElement = filteredSchedules.length + 1 == index;
                   return Card(
                     margin: !isLastElement
@@ -173,7 +175,7 @@ class _ScheduleTabState extends State<ScheduleTab> {
                           Row(
                             children: [
                               CircleAvatar(
-                                backgroundImage: AssetImage(_schedule['img']),
+                                backgroundImage: AssetImage(schedule['img']),
                               ),
                               const SizedBox(
                                 width: 10,
@@ -182,8 +184,8 @@ class _ScheduleTabState extends State<ScheduleTab> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    _schedule['doctorName'],
-                                    style: TextStyle(
+                                    schedule['doctorName'],
+                                    style: const TextStyle(
                                       color: Color(MyColors.header01),
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -192,8 +194,8 @@ class _ScheduleTabState extends State<ScheduleTab> {
                                     height: 5,
                                   ),
                                   Text(
-                                    _schedule['doctorTitle'],
-                                    style: TextStyle(
+                                    schedule['doctorTitle'],
+                                    style: const TextStyle(
                                       color: Color(MyColors.grey02),
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
@@ -253,12 +255,12 @@ class DateTimeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(MyColors.bg03),
+        color: const Color(MyColors.bg03),
         borderRadius: BorderRadius.circular(10),
       ),
       width: double.infinity,
       padding: const EdgeInsets.all(20),
-      child: Row(
+      child: const Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -269,7 +271,7 @@ class DateTimeCard extends StatelessWidget {
                 color: Color(MyColors.primary),
                 size: 15,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(
@@ -289,7 +291,7 @@ class DateTimeCard extends StatelessWidget {
                 color: Color(MyColors.primary),
                 size: 17,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(

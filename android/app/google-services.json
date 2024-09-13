@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "980447469808",
+    "project_id": "sabrina-app",
+    "storage_bucket": "sabrina-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980447469808:android:3937bb4d9ac97188666235",
+        "android_client_info": {
+          "package_name": "com.example.doctor_appointment_app_main_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980447469808-0ugjukha0551ha5n9ti5jm60ekv345bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBrdkE_RImuD8MZF0bKy8KufpD2n1l7WQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980447469808-0ugjukha0551ha5n9ti5jm60ekv345bg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "980447469808-h7jnl395pgbcdpm5fj3km6s9tafe1g4p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorAppointmentAppMainTest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
